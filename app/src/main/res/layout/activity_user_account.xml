@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/LetsGoBackground"
+    tools:context="com.example.prime.mycyclewaynew.Authentications.UserAccount">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/userImage"
+            android:layout_width="144dp"
+            android:layout_height="144dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/LetsGoBackground"
+            android:contentDescription="@string/todo"
+            app:srcCompat="@drawable/usericon" />
+
+        <TextView
+            android:id="@+id/nameTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/userImage"
+            android:layout_marginTop="45dp"
+            android:layout_toEndOf="@+id/userImage"
+            android:hint="@string/username"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/EmailTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameTV"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/userImage"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userImage"
+            android:layout_toEndOf="@+id/userImage"
+            android:text="@string/places"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <ListView
+            android:id="@+id/placesList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignStart="@+id/userImage"
+            android:layout_below="@+id/textView3"
+            android:layout_marginTop="12dp" />
+
+        <Button
+            android:id="@+id/editbtn"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/userImage"
+            android:text="@string/edit"
+            android:textAppearance="@style/TextAppearance.AppCompat" />
+
+        <Button
+            android:id="@+id/changeImage"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_above="@+id/placesList"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/opencameraicon" />
+
+        <ProgressBar
+            android:id="@+id/progressBar3"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/placesList"
+            android:layout_toEndOf="@+id/changeImage"
+            android:layout_toStartOf="@+id/textView3"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
+
+
+
+
+
