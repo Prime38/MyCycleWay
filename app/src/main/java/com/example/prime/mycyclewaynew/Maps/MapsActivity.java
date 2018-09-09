@@ -37,6 +37,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.prime.mycyclewaynew.Authentications.UserAccount;
+import com.example.prime.mycyclewaynew.Feedback;
 import com.example.prime.mycyclewaynew.R;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
@@ -135,7 +137,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             int minutes = seconds / 60;
             seconds = seconds % 60;
             getDeviceLocation();
-            if(holeIsClose()){
+            if(holeIsClose()&&startButton.getText().toString().equals("Stop")){
 //                if (mp.isPlaying()){
 //                    mp.release();
 //                }
@@ -168,6 +170,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         if (menuItem.getItemId() == R.id.ur_acc) {
+                            openaccount();
 
                         }
                         else if(menuItem.getItemId() == R.id.favourites){
@@ -177,9 +180,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         }
                         else if(menuItem.getItemId() == R.id.feedback){
+                            openfeedback();
 
                         }
                         else if(menuItem.getItemId() == R.id.tutorial){
+
 
                         }
 
@@ -195,6 +200,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         return true;
                     }
                 });
+
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 //        ActionBar actionbar = getSupportActionBar();
@@ -268,12 +274,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 return infoWindow;
             }
         });
+
+        mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
+
+            @Override
+            public void onMapLongClick(LatLng arg0) {
+                mRootReference.push().setValue(arg0);
+                }
+        });
         // Prompt the user for permission.
         getLocationPermission();
         // Turn on the My Location layer and the related control on the map.
         updateLocationUI();
         // Get the current location of the device and set the position of the map.
         getDeviceLocation();
+        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mLastKnownLatlang,DEFAULT_ZOOM));
         onStopClick();
         markers.add(mLastKnownLatlang);
         startTime = System.currentTimeMillis();
@@ -626,7 +641,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             //checkCurrentLocationIfPHisAhead();
                             mLastKnownLatlang=new LatLng(mLastKnownLocation.getLatitude(),mLastKnownLocation.getLongitude());
                             //timerTextView.setText(mLastKnownLatlang.toString());
-                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mLastKnownLatlang,DEFAULT_ZOOM));
+
                         } else {
                             Log.d(TAG, "Current location is null. Using defaults.");
                             Log.e(TAG, "Exception: %s", task.getException());
@@ -756,7 +771,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         return isclose;
     }
     public void openfeedback(){
-        Intent i = new Intent(this,MapsActivity.class);
+        Intent i = new Intent(this,Feedback.class);
+        finish();
+        startActivity(i);
+    }
+    public void openaccount(){
+        Intent i = new Intent(this,UserAccount.class);
+        finish();
+        startActivity(i);
+    }
+    public void tutorial(){
+        Intent i = new Intent(this,Feedback.class);
         finish();
         startActivity(i);
     }
