@@ -25,7 +25,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/dc44e09a6c8399c742b256d2be3a24fc"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
