@@ -167,6 +167,23 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        if (menuItem.getItemId() == R.id.ur_acc) {
+
+                        }
+                        else if(menuItem.getItemId() == R.id.favourites){
+
+                        }
+                        else if(menuItem.getItemId() == R.id.map){
+
+                        }
+                        else if(menuItem.getItemId() == R.id.feedback){
+
+                        }
+                        else if(menuItem.getItemId() == R.id.tutorial){
+
+                        }
+
+
                         // set item as selected to persist highlight
                         menuItem.setChecked(true);
                         // close drawer when item is tapped
@@ -178,11 +195,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         return true;
                     }
                 });
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar actionbar = getSupportActionBar();
-        actionbar.setDisplayHomeAsUpEnabled(true);
-        actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        ActionBar actionbar = getSupportActionBar();
+//        actionbar.setDisplayHomeAsUpEnabled(true);
+//        actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
 
         mp=MediaPlayer.create(this,R.raw.alarm);
         //timerTextView=(TextView)findViewById(R.id.textView);
@@ -738,8 +755,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         return isclose;
     }
+    public void openfeedback(){
+        Intent i = new Intent(this,MapsActivity.class);
+        finish();
+        startActivity(i);
+    }
 
 }
+
 
 
 
